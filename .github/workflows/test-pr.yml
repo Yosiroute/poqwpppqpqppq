@@ -1,5 +1,8 @@
 name: PR
 
+permissions:
+  contents: write
+  
 on:
   pull_request:
   merge_group:
@@ -14,10 +17,12 @@ env:
   SHOPIFY_CONFIG: debug
   PNPM_VERSION: '10.11.1'
   BUNDLE_WITHOUT: 'test:development'
-  GH_TOKEN: ${{ secrets.SHOPIFY_GH_READ_CONTENT_TOKEN }}
+  GH_TOKEN_CUSTOM: ${{ secrets.SHOPIFY_GH_READ_CONTENT_TOKEN }}
   GH_TOKEN_SHOP: ${{ secrets.SHOP_GH_READ_CONTENT_TOKEN }}
   DEFAULT_NODE_VERSION: '26.1.0'
   PLAYWRIGHT_NODE_VERSION: '24.1.0'
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
 jobs:
   type-check:
