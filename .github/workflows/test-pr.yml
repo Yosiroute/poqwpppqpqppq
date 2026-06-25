@@ -1,6 +1,7 @@
 name: PR
 
 on:
+  pull_request:
   merge_group:
 
 concurrency:
@@ -23,6 +24,7 @@ jobs:
     name: 'Type check'
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    if: github.event_name == 'merge_group'
     steps:
       - uses: actions/checkout@v6
         with:
